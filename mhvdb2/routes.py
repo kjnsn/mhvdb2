@@ -71,7 +71,7 @@ def payments_post():
                                reference=reference), 400
 
     # Cajole the post data into integers
-    amount = int(amount)
+    amount = float(amount)
     type = int(type)
     method = int(method)
 

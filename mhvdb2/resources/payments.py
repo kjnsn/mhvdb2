@@ -7,7 +7,7 @@ from peewee import DoesNotExist
 def validate(amount, email, method, type, notes, reference):
     errors = []
 
-    if not amount or not amount.isdigit() or int(amount) <= 0:
+    if not amount or not re.match("^[0-9]*(\.[0-9]{2}|\.[0-9]|)$", amount):
         errors.append("Sorry, you need to provide a valid amount.")
     if not re.match("[^@\s]+@[^@\s]+", email):
         errors.append("Sorry, you need to provide a valid email address.")

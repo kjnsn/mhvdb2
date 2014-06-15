@@ -29,7 +29,7 @@ class Payment(BaseModel):
     """
     time = DateTimeField()  # Date & time the payment occured
     entity = ForeignKeyField(Entity, related_name='payments')
-    amount = IntegerField()  # Monetary amount in cents, e.g. $12.34 = 1234
+    amount = FloatField()
     source = IntegerField(choices=[(0, 'Other'), (1, 'Bank Transfer')])
     is_donation = BooleanField()  # For members, donation vs payment for goods
     notes = TextField(null=True)
